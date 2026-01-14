@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Racing+Sans+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* F1 Inspired Palette */
+  /* Dark Grey Background #15151e -> 240 18% 10% */
+  /* Bright Red #FF1801 -> 4 100% 50% */
+  
+  --background: 240 18% 10%;
+  --foreground: 0 0% 100%;
+
+  --card: 240 18% 13%;
+  --card-foreground: 0 0% 100%;
+ 
+  --popover: 240 18% 13%;
+  --popover-foreground: 0 0% 100%;
+ 
+  --primary: 4 100% 50%;
+  --primary-foreground: 0 0% 100%;
+ 
+  --secondary: 240 12% 20%;
+  --secondary-foreground: 0 0% 100%;
+ 
+  --muted: 240 12% 20%;
+  --muted-foreground: 240 5% 65%;
+ 
+  --accent: 4 100% 50%;
+  --accent-foreground: 0 0% 100%;
+ 
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 240 12% 20%;
+  --input: 240 12% 20%;
+  --ring: 4 100% 50%;
+ 
+  --radius: 0.5rem;
+
+  --font-display: 'Racing Sans One', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    font-family: var(--font-body);
+    background-image: 
+      radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.05) 0%, transparent 50%),
+      linear-gradient(to bottom, transparent, hsl(var(--background))),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply uppercase tracking-wide;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background)); 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--secondary)); 
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary)); 
+}
